@@ -1,7 +1,7 @@
 ## Digital Calipers Datar Retriever
 Custom pcb's for getting data off of Digital Calipers
 
-100% based on the work done by [Making Stuff](https://www.youtube.com/channel/UCYdkEm-NjhS8TmLVt_qZy9g),  you can find their Project Page [Here](https://www.youtube.com/channel/UCYdkEm-NjhS8TmLVt_qZy9g), and the original 3D printed piece [here](https://www.thingiverse.com/thing:1543247), and their original ino file [here](https://github.com/MakingStuffChannel/DigitalCalipers)
+100% based on the work done by [Making Stuff](https://www.youtube.com/channel/UCYdkEm-NjhS8TmLVt_qZy9g),  you can find their Project Page [Here](https://www.youtube.com/channel/UCYdkEm-NjhS8TmLVt_qZy9g), the original 3D printed piece [here](https://www.thingiverse.com/thing:1543247), and their original ino file [here](https://github.com/MakingStuffChannel/DigitalCalipers)
 
 Purchase on OSHPark or upload gerbers to your PCB manufacturer of choice.
 
