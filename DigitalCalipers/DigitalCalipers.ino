@@ -3,18 +3,14 @@
 //By Making Stuff Youtube channel https://www.youtube.com/c/makingstuff
 //This code is open source and in the public domain.
 
-#include <USBKeyboard.h>
-#define LAYOUT LAYOUT_US
-
 const byte clockPin = 2;  //attach to clock pin on calipers
 const byte dataPin = 3; //attach to data pin on calipers
-const int button = 4; //Button pin for outputting caliper value as keyboard output
-
-USBKeyboard keyboard = USBKeyboard();
+const byte buttonPin = 4; //Pin used for button input
 
 //Milliseconds to wait until starting a new value
 //This can be a different value depending on which flavor caliper you are using.
 const int cycleTime = 32; 
+int buttonState = 0;
 
 unsigned volatile int clockFlag = 0; 
 
@@ -28,15 +24,13 @@ float previousValue = 0;
 int newValue = 0;
 int sign = 1;
 int currentBit = 1;
-int buttonState = 0;
 
 void setup() {
   Serial.begin(115200);
-  TIMSK0 = 0;
-
-  pinMode(button, INPUT);
+ 
   pinMode(clockPin, INPUT);  
   pinMode(dataPin, INPUT); 
+  pinMode(buttonPin, INPUT);
   
   
   //We have to take the value on the RISING edge instead of FALLING
@@ -46,21 +40,15 @@ void setup() {
 }
 
 void loop() {  
-
-  keyboard.update();
-  buttonState = digitalRead(button);
-
+  buttonState = digitalRead(buttonPin);
   if (buttonState == HIGH) {
-    keyboard.print(finalValue);
-  }
-  
-  if(newValue) 
-  {
-   if(finalValue != previousValue) {
-     previousValue = finalValue;
-     Serial.println(finalValue,2);     
-   }
-   newValue = 0;
+    if(newValue){
+      if(finalValue != previousValue) {
+        previousValue = finalValue;
+        Serial.println(finalValue,2);
+      }
+      newValue = 0;
+    }
   }
   
  //The ISR Can't handle the arduino command millis()
@@ -114,3 +102,7 @@ void decode(){
 void clockISR(){
  clockFlag = 1; 
 }
+
+
+
+

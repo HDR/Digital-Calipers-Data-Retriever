@@ -5,7 +5,7 @@ Custom pcb's for getting data off of Digital Calipers
 
 Purchase on OSHPark or upload gerbers to your PCB manufacturer of choice.
 
-[Arduino Module (OSHPark)](https://oshpark.com/shared_projects/FKOFB8a7)
+[Arduino Module (OSHPark)](https://oshpark.com/shared_projects/ls60yUvY)
 
 [Caliper Plug Board (OSHPark)](https://oshpark.com/shared_projects/xektDr2t)
 
@@ -22,3 +22,7 @@ Purchase on OSHPark or upload gerbers to your PCB manufacturer of choice.
 ### Images
 ![](https://i.imgur.com/3fgop5n.jpg)
 ![](https://i.imgur.com/qUSvXvw.png)
+
+** Changelog: **
+- Reversed Arduino footprint to make fix the incorrect orientation of the Arduino.
+- Values will now only be printed to the serial monitor when the button on the board is pressed.
