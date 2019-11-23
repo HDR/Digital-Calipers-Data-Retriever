@@ -102,7 +102,3 @@ void decode(){
 void clockISR(){
  clockFlag = 1; 
 }
-
-
-
-
