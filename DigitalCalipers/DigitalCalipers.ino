@@ -3,14 +3,8 @@
 //By Making Stuff Youtube channel https://www.youtube.com/c/makingstuff
 //This code is open source and in the public domain.
 
-#include <USBKeyboard.h>
-#define LAYOUT LAYOUT_US
-
 const byte clockPin = 2;  //attach to clock pin on calipers
 const byte dataPin = 3; //attach to data pin on calipers
-const int button = 4; //Button pin for outputting caliper value as keyboard output
-
-USBKeyboard keyboard = USBKeyboard();
 
 //Milliseconds to wait until starting a new value
 //This can be a different value depending on which flavor caliper you are using.
@@ -28,13 +22,10 @@ float previousValue = 0;
 int newValue = 0;
 int sign = 1;
 int currentBit = 1;
-int buttonState = 0;
 
 void setup() {
   Serial.begin(115200);
-  TIMSK0 = 0;
-
-  pinMode(button, INPUT);
+ 
   pinMode(clockPin, INPUT);  
   pinMode(dataPin, INPUT); 
   
@@ -46,13 +37,6 @@ void setup() {
 }
 
 void loop() {  
-
-  keyboard.update();
-  buttonState = digitalRead(button);
-
-  if (buttonState == HIGH) {
-    keyboard.print(finalValue);
-  }
   
   if(newValue) 
   {
@@ -114,3 +98,7 @@ void decode(){
 void clockISR(){
  clockFlag = 1; 
 }
+
+
+
+
